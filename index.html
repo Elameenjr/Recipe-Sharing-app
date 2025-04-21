@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Sharing App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav id="main-nav">
+            <div class="logo">Recipe Sharing</div>
+            <div class="nav-links">
+                <a href="#" id="home-link">Home</a>
+                <a href="#" id="recipes-link">Recipes</a>
+                <a href="#" id="login-link">Login</a>
+                <a href="#" id="register-link">Register</a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div id="content">
+            <!-- Dynamic content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Modal for Login/Register -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="auth-form-container">
+                <!-- Login/Register forms will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Creation Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="recipe-form-container">
+                <!-- Recipe creation form -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
