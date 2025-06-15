@@ -85,6 +85,10 @@ body {
     transform: scale(1.05);
 }
 
+.recipe-card:hover .recipe-overlay {
+    opacity: 1;
+}
+
 .form-group {
     margin-bottom: 1rem;
 }
@@ -115,4 +119,21 @@ body {
 
 .btn:hover {
     background-color: var(--secondary-color);
+}
+
+.chat-message:hover .message-time {
+    display: block;
+}
+
+#videoModal {
+    transition: all 0.3s ease;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

@@ -409,7 +409,7 @@ class CookConnectApp {
 // Initialize the application when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.cookConnectApp = new CookConnectApp();
-    
+
     // Simulate chat message response after a delay
     setTimeout(() => {
         const chatContainer = document.getElementById('chatMessages');
@@ -449,6 +449,50 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', function() {
             if (!profileDropdown.classList.contains('hidden')) {
                 profileDropdown.classList.add('hidden');
+            }
+        });
+    }
+
+    // Modal logic for Login/Sign Up
+    const authModal = document.getElementById('authModal');
+    const loginSignupBtn = document.getElementById('loginSignupBtn');
+    const closeAuthModal = document.getElementById('closeAuthModal');
+    const authForm = document.getElementById('authForm');
+    const signupForm = document.getElementById('signupForm');
+    const toggleSignup = document.getElementById('toggleSignup');
+    const toggleLogin = document.getElementById('toggleLogin');
+
+    if (loginSignupBtn) {
+        loginSignupBtn.addEventListener('click', function () {
+            authModal.classList.remove('hidden');
+            authForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+        });
+    }
+    if (closeAuthModal) {
+        closeAuthModal.addEventListener('click', function () {
+            authModal.classList.add('hidden');
+        });
+    }
+    if (toggleSignup) {
+        toggleSignup.addEventListener('click', function (e) {
+            e.preventDefault();
+            authForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+        });
+    }
+    if (toggleLogin) {
+        toggleLogin.addEventListener('click', function (e) {
+            e.preventDefault();
+            signupForm.classList.add('hidden');
+            authForm.classList.remove('hidden');
+        });
+    }
+    // Optional: Close modal when clicking outside the modal content
+    if (authModal) {
+        authModal.addEventListener('click', function (e) {
+            if (e.target === authModal) {
+                authModal.classList.add('hidden');
             }
         });
     }

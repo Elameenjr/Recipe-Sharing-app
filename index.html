@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CookConnect - Share & Discover Recipes</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -49,6 +50,13 @@
                         onclick="document.getElementById('submitRecipeSection').scrollIntoView({ behavior: 'smooth' });"
                     >
                         <i class="fas fa-plus mr-2"></i> Add Recipe
+                    </button>
+                    <!-- Login/Sign Up Button -->
+                    <button
+                        id="loginSignupBtn"
+                        class="ml-4 bg-white text-red-600 border border-red-500 hover:bg-red-50 px-4 py-2 rounded-md text-sm font-medium transition duration-300"
+                    >
+                        Log In / Sign Up
                     </button>
                     <div class="ml-3 relative group">
                         <div>
@@ -121,9 +129,9 @@
                 <div class="relative w-full h-96">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="bg-white rounded-xl shadow-2xl p-4 max-w-sm transform rotate-3">
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Delicious food" class="rounded-lg w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=60" alt="Jollof Rice" class="rounded-lg w-full h-64 object-cover">
                             <div class="mt-4">
-                                <h3 class="text-lg font-semibold text-gray-800">Avocado Toast</h3>
+                                <h3 class="text-lg font-semibold text-gray-800">Jollof Rice</h3>
                                 <div class="flex items-center mt-1">
                                     <div class="flex">
                                         <i class="fas fa-star text-yellow-400"></i>
@@ -132,14 +140,14 @@
                                         <i class="fas fa-star text-yellow-400"></i>
                                         <i class="fas fa-star-half-alt text-yellow-400"></i>
                                     </div>
-                                    <span class="text-gray-500 text-sm ml-2">4.5 (128 reviews)</span>
+                                    <span class="text-gray-500 text-sm ml-2">4.8 (320 reviews)</span>
                                 </div>
                             </div>
                         </div>
                         <div class="absolute bg-white rounded-xl shadow-2xl p-4 max-w-sm -bottom-10 -left-20 transform -rotate-6">
-                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Salad" class="rounded-lg w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=500&q=60" alt="Egusi Soup" class="rounded-lg w-full h-64 object-cover">
                             <div class="mt-4">
-                                <h3 class="text-lg font-semibold text-gray-800">Colorful Salad</h3>
+                                <h3 class="text-lg font-semibold text-gray-800">Egusi Soup</h3>
                                 <div class="flex items-center mt-1">
                                     <div class="flex">
                                         <i class="fas fa-star text-yellow-400"></i>
@@ -148,7 +156,7 @@
                                         <i class="fas fa-star text-yellow-400"></i>
                                         <i class="fas fa-star text-yellow-400"></i>
                                     </div>
-                                    <span class="text-gray-500 text-sm ml-2">5.0 (78 reviews)</span>
+                                    <span class="text-gray-500 text-sm ml-2">5.0 (210 reviews)</span>
                                 </div>
                             </div>
                         </div>
@@ -978,6 +986,55 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Login/Sign Up Modal -->
+    <div id="authModal" class="fixed z-50 inset-0 overflow-y-auto hidden">
+      <div class="flex items-center justify-center min-h-screen px-4 py-8">
+        <div class="fixed inset-0 bg-gray-900 opacity-50"></div>
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md z-10 p-8 relative">
+          <button id="closeAuthModal" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl font-bold focus:outline-none" aria-label="Close">&times;</button>
+          <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Log In / Sign Up</h2>
+          <form id="authForm" class="space-y-4">
+            <div>
+              <label for="authEmail" class="block text-sm font-medium text-gray-700">Email</label>
+              <input id="authEmail" type="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500">
+            </div>
+            <div>
+              <label for="authPassword" class="block text-sm font-medium text-gray-700">Password</label>
+              <input id="authPassword" type="password" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500">
+            </div>
+            <div>
+              <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-md font-medium hover:bg-red-700 transition">Log In</button>
+            </div>
+            <div class="text-center text-sm text-gray-500">
+              Don't have an account?
+              <a href="#" id="toggleSignup" class="text-red-600 hover:underline">Sign Up</a>
+            </div>
+          </form>
+          <form id="signupForm" class="space-y-4 hidden">
+            <div>
+              <label for="signupUsername" class="block text-sm font-medium text-gray-700">Username</label>
+              <input id="signupUsername" type="text" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500">
+            </div>
+            <div>
+              <label for="signupEmail" class="block text-sm font-medium text-gray-700">Email</label>
+              <input id="signupEmail" type="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500">
+            </div>
+            <div>
+              <label for="signupPassword" class="block text-sm font-medium text-gray-700">Password</label>
+              <input id="signupPassword" type="password" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500">
+            </div>
+            <div>
+              <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-md font-medium hover:bg-red-700 transition">Sign Up</button>
+            </div>
+            <div class="text-center text-sm text-gray-500">
+              Already have an account?
+              <a href="#" id="toggleLogin" class="text-red-600 hover:underline">Log In</a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
