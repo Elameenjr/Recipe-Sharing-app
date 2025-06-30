@@ -58,13 +58,13 @@ class CookConnectApp {
         }
 
         // Recipe submission form
-        // const recipeForm = document.querySelector('form button[type="submit"]');
-        // if (recipeForm) {
-        //     recipeForm.addEventListener('click', (e) => {
-        //         e.preventDefault();
-        //         // this.submitRecipe();
-        //     });
-        // }
+        const recipeForm = document.querySelector('form button[type="submit"]');
+        if (recipeForm) {
+            recipeForm.addEventListener('click', (e) => {
+                e.preventDefault();
+                // this.submitRecipe();
+            });
+        }
 
         // Add event listeners to all recipe video play buttons
         document.querySelectorAll('.recipe-overlay button').forEach(button => {
@@ -235,10 +235,10 @@ class CookConnectApp {
         const instructions = document.getElementById('instructions')?.value;
 
         // Validate form
-        // if (!recipeName || !description || !prepTime || !cookTime || !servings || !ingredients || !instructions) {
-        //     alert('Please fill in all required fields');
-        //     return;
-        // }
+        if (!recipeName || !description || !prepTime || !cookTime || !servings || !ingredients || !instructions) {
+            alert('Please fill in all required fields');
+            return;
+        }
 
         // Create new recipe object
         const newRecipe = {
@@ -462,38 +462,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleSignup = document.getElementById('toggleSignup');
     const toggleLogin = document.getElementById('toggleLogin');
 
-    // if (loginSignupBtn) {
-    //     loginSignupBtn.addEventListener('click', function () {
-    //         authModal.classList.remove('hidden');
-    //         authForm.classList.remove('hidden');
-    //         signupForm.classList.add('hidden');
-    //     });
-    // }
+    if (loginSignupBtn) {
+        loginSignupBtn.addEventListener('click', function () {
+            authModal.classList.remove('hidden');
+            authForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+        });
+    }
     if (closeAuthModal) {
         closeAuthModal.addEventListener('click', function () {
             authModal.classList.add('hidden');
         });
     }
-    // if (toggleSignup) {
-    //     toggleSignup.addEventListener('click', function (e) {
-    //         e.preventDefault();
-    //         authForm.classList.add('hidden');
-    //         signupForm.classList.remove('hidden');
-    //     });
-    // }
-    // if (toggleLogin) {
-    //     toggleLogin.addEventListener('click', function (e) {
-    //         e.preventDefault();
-    //         signupForm.classList.add('hidden');
-    //         authForm.classList.remove('hidden');
-    //     });
-    // }
+    if (toggleSignup) {
+        toggleSignup.addEventListener('click', function (e) {
+            e.preventDefault();
+            authForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+        });
+    }
+    if (toggleLogin) {
+        toggleLogin.addEventListener('click', function (e) {
+            e.preventDefault();
+            signupForm.classList.add('hidden');
+            authForm.classList.remove('hidden');
+        });
+    }
     // Optional: Close modal when clicking outside the modal content
-    // if (authModal) {
-    //     authModal.addEventListener('click', function (e) {
-    //         if (e.target === authModal) {
-    //             authModal.classList.add('hidden');
-    //         }
-    //     });
-    // }
+    if (authModal) {
+        authModal.addEventListener('click', function (e) {
+            if (e.target === authModal) {
+                authModal.classList.add('hidden');
+            }
+        });
+    }
 });
